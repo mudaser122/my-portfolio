@@ -1,0 +1,70 @@
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  /* Colors */
+  --bg-primary: #FdfAf6;
+  --bg-dark: #0a0a0a;
+  --text-primary: #000000;
+  --text-secondary: #666666;
+  --text-light: #ffffff;
+  --accent: #333333;
+
+  /* Typography */
+  --font-heading: 'Anton', 'Oswald', sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  /* Spacing */
+  --container-width: 1200px;
+  --section-padding: 80px 20px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Utilities */
+.text-center { text-align: center; }
+.flex { display: flex; }
+.grid { display: grid; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }

@@ -1,0 +1,122 @@
+.about-section {
+    padding: 100px 0;
+    background-color: #000;
+    color: #fff;
+}
+
+.about-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.about-label-column {
+    flex: 0 0 20%;
+}
+
+.btn-learn-more {
+    margin-top: 40px;
+    padding: 15px 30px;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn-learn-more:hover {
+    background-color: #ddd;
+    transform: translateY(-3px);
+}
+
+.about-label {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.about-content-column {
+    flex: 0 0 70%;
+}
+
+.about-bio {
+    font-size: 24px;
+    line-height: 1.5;
+    margin-bottom: 80px;
+    max-width: 900px;
+    font-weight: 300;
+}
+
+.about-stats-grid {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    max-width: 800px;
+}
+
+.about-stat-item {
+    text-align: center;
+}
+
+.about-stat-number {
+    font-size: 48px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.about-stat-label {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .about-section {
+        padding: 60px 0;
+    }
+
+    .about-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .about-label-column, .about-content-column {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .about-label {
+        font-size: 18px;
+        margin-bottom: 10px;
+        opacity: 0.6;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .about-bio {
+        font-size: 18px;
+        margin-bottom: 40px;
+    }
+
+    .about-stats-grid {
+        flex-direction: column;
+        gap: 40px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-stat-item {
+        margin-bottom: 20px;
+    }
+    
+    .about-stat-number {
+        font-size: 36px;
+    }
+}
