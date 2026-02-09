@@ -73,13 +73,15 @@ const Hero = () => {
                 <p className="hero-intro">
                     Hi, I'm Mudasir, a passionate UX Designer dedicated to creating user-friendly digital experiences.
                 </p>
-                <Motion.button 
+                <Motion.a 
+                    href="#contact"
                     className="hero-button"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
+                    style={{ display: 'inline-block', textDecoration: 'none' }}
                 >
                     Get In touch
-                </Motion.button>
+                </Motion.a>
             </Motion.div>
         </div>
       </Motion.div>
