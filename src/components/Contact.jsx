@@ -1,39 +1,30 @@
 import React, { useState } from 'react';
 import SectionReveal from './SectionReveal';
+import emailjs from '@emailjs/browser';
 import '../styles/Contact.css';
 
 const Contact = () => {
     const [status, setStatus] = useState('IDLE'); // IDLE, SENDING, SUCCESS, ERROR
     const [errorMessage, setErrorMessage] = useState('');
+    const form = React.useRef();
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         setStatus('SENDING');
         setErrorMessage('');
 
-        const formData = new FormData(e.target);
-        
-        try {
-            const response = await fetch("https://formsubmit.co/ajax/mudaserjaskani8@gmail.com", {
-                method: "POST",
-                body: formData
-            });
-
-            const result = await response.json();
-
-            if (result.success === "true" || result.success === true) {
+        // SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY
+        emailjs.sendForm('service_1ho68vf', 'template_ajyulwx', form.current, 'h1Ar131uFWIR4Vuii')
+            .then((result) => {
+                console.log(result.text);
                 setStatus('SUCCESS');
                 e.target.reset();
                 setTimeout(() => setStatus('IDLE'), 5000);
-            } else {
+            }, (error) => {
+                console.log(error.text);
                 setStatus('ERROR');
-                setErrorMessage(result.message || 'Failed to send message.');
-            }
-        } catch (error) {
-            console.error("Error submitting form:", error);
-            setStatus('ERROR');
-            setErrorMessage('Network error. Please try again.');
-        }
+                setErrorMessage('Failed to send message. Please check your internet connection or try again later.');
+            });
     };
 
     return (
@@ -98,17 +89,12 @@ const Contact = () => {
 
                     {/* Right Column: Form */}
                     <div className="contact-form-wrapper">
-                        <form className="contact-form" onSubmit={handleSubmit}>
-                            {/* FormSubmit Configuration */}
-                            <input type="hidden" name="_captcha" value="false" />
-                            <input type="hidden" name="_template" value="table" />
-                            <input type="hidden" name="_subject" value="New Submission from Portfolio!" />
-
+                        <form className="contact-form" ref={form} onSubmit={handleSubmit}>
                             <div className="form-row">
                                 <div className="form-group">
                                     <label className="form-label">FULL NAME</label>
                                     <div className="input-icon-wrapper">
-                                        <input type="text" name="name" required className="form-input" placeholder="Steve Milner" />
+                                        <input type="text" name="user_name" required className="form-input" placeholder="Steve Milner" />
                                         <div className="input-icon">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                                         </div>
@@ -117,7 +103,7 @@ const Contact = () => {
                                 <div className="form-group">
                                     <label className="form-label">EMAIL ADDRESS</label>
                                     <div className="input-icon-wrapper">
-                                        <input type="email" name="email" required className="form-input" placeholder="hello@websitename.com" />
+                                        <input type="email" name="user_email" required className="form-input" placeholder="hello@websitename.com" />
                                         <div className="input-icon">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                                         </div>
