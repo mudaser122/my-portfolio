@@ -3,6 +3,7 @@ import SectionReveal from './SectionReveal';
 import '../styles/Projects.css';
 import project1 from '../assets/project-newly-temp-latest.png';
 import project2 from '../assets/project-msm-logo.jpg';
+import project3 from '../assets/project-the100.png';
 
 const Projects = () => {
     const projects = [
@@ -20,7 +21,13 @@ const Projects = () => {
             image: project2,
             link: 'https://msm-interior-decorator-nine.vercel.app/'
         },
-        // Add more projects here
+        {
+            id: 3,
+            title: 'THE100.',
+            description: 'A premium automotive detailing service website.',
+            image: project3,
+            link: 'https://the100-nine.vercel.app/'
+        },
     ];
 
     return (
